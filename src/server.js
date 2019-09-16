@@ -6,7 +6,7 @@ import { GraphQLServer } from "graphql-yoga";
 
 // Morgan is da logger
 import logger from "morgan";
-
+import schema from "./schema";
 /*
 
 Above: Setup, require, imports!
@@ -15,21 +15,22 @@ Below: Actual server code!
 
 */
 
-
 // Setup port (from .env file). If absent, set it to 4000
 const PORT = process.env.PORT || 4000;
 
-const typeDefs = `
-    type Query {
-        hello: String!
-    }`;
+// const typeDefs = `
+//     type Query {
+//         hello: String!
+//     }`;
 
-const resolvers = {
-  Query: { hello: () => "HI" }
-};
+// const resolvers = {
+//   Query: { hello: () => "HI" }
+// };
 
-const server = new GraphQLServer({ typeDefs, resolvers });
+const server = new GraphQLServer({ schema });
 
-server.express.use(logger("dev"))
+server.express.use(logger("dev"));
 
-server.start({ port: PORT }, ()=> console.log(`Server running on http://localhost: ${PORT}`));
+server.start({ port: PORT }, () =>
+  console.log(`Server running on http://localhost: ${PORT}`)
+);
