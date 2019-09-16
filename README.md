@@ -67,3 +67,12 @@ Prisma를 depoly하면 Prisma endpoint를 알려주는데 이 주소는 결코 �
     }
 
 이런 mutation을 자동으로 만들어준다.
+
+## Lecture 2.3
+
+prisma.yml 안엔 url들이 다 들어있다. 
+
+**절대 GITHUB에 업로드하지 말자**
+
+generated에 생성된 파일들을 이용해 prisma 서버와 communicate하게 된다.
+
