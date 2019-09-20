@@ -76,3 +76,13 @@ prisma.yml 안엔 url들이 다 들어있다.
 
 generated에 생성된 파일들을 이용해 prisma 서버와 communicate하게 된다.
 
+## Lecture 3.5
+
+nodemailer로 login secret을 메일로 보낸다.
+유저가 이 메일을 받아 secret을 입력하면 이제 로그인을 시켜야하는데 이 과정에서 passport를 이용.
+유저 아이디를 넘기고 받고 해야하는데 이 id를 jwt token을 이용해 암호화한다. 이 jwt token을 만드는 구성요소는...
+
+- 1. .env 파일 내에 들어있는 secret 파일. 이걸 이용해 encoding decoding을 한다.
+- 2. 그럼 util.js 내의 generateToken function encrypts user id w/ jwt secret
+- 3. confirmSecret resolver: confirms login secret and return token
+- 4. To decrypt this token we need passport
